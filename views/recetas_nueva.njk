@@ -1,0 +1,46 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Insertar nueva receta{% endblock %}
+
+{% block contenido %}
+<form action="/recetas" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Nombre:
+                <input type="text" class="form-control" name="titulo" 
+                placeholder="Nombre de la receta">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Imagen:
+                <input type="file" class="form-control" name="imagen">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Comensales:
+                <input type="number" class="form-control" name="comensales"
+                placeholder="Comensales">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Tiempo de preparación:
+                <input type="number" class="form-control" name="preparacion"
+                placeholder="Tiempo de preparación de la receta">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Tiempo de cocción:
+                <input type="number" class="form-control" name="coccion"
+                placeholder="Tiempo de cocción de la receta">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Descripción:
+                <input type="text" class="form-control" name="descripcion"
+                placeholder="Descripción de la receta">
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Crear receta
+        </button>
+    </form>
+{% endblock %}

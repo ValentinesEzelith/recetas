@@ -1,0 +1,29 @@
+{% extends "base.njk" %}
+
+{% block titulo %} Receta: {{fichareceta.titulo}} {% endblock %}
+
+{% block contenido %}
+    <i src="{{fichareceta.imagen}}"></i>
+
+    <h1>{{fichareceta.titulo}}</h1>
+
+    <h3>Comensales recomendados: {{fichareceta.comensales}}</h3>
+
+    <ul><h3>Ingredientes</h3>
+    {% for ingrediente in fichareceta.ingredientes %}
+        <li>{{ingrediente.cantidad}} {{ingrediente.unidad}} de {{ingrediente.nombre}}</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Tiempo de preparación: {{fichareceta.preparacion}}</h3>
+    <h3>Tiempo de cocción: {{fichareceta.coccion}}</h3>
+
+    <h3>Modo de preparación</h3>
+    <p>{{fichareceta.descripcion}}</p>
+    
+    {% if (session and session.usuario) %}
+    <a href="/recetas/{{fichareceta.id}}/editar">Editar receta</a>
+    <a href="/recetas/{{fichareceta.id}}/eliminar">Borrar receta</a>
+    <a href="/recetas/{{fichareceta.id}}/ingredientes/nuevo">Añadir ingrediente</a>
+    {% endif %}
+{% endblock %}

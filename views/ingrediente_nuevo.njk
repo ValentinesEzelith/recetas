@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+
+{% block titulo %} Añadir ingrediente {% endblock %}
+{% block contenido %}
+<form action="/recetas/{{fichareceta.id}}/ingredientes" method="post">
+        <div class="form-group">
+            <label>Nombre de ingrediente:
+                <input type="text" class="form-control" name="nombre">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Cantidad:
+                <input type="number" class="form-control" name="cantidad">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Medida:
+                <div>
+                    <input type="radio" id="gr" name="unidad" value="gr" checked />
+                    <label for="gr">Gramos</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="cucharadas" name="unidad" value="cucharadas" />
+                    <label for="cucharadas">Cucharadas</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="unidades" name="unidad" value="unidades" />
+                    <label for="unidades">Unidades</label>
+                </div>
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Guardar cambios
+        </button>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.njk" %}
+
+{% block titulo %} Listado de recetas {% endblock %}
+
+{% block contenido %}
+    {% for receta in listarecetas %}
+        <figure>
+        {% if receta.imagen %}
+            <img src="/public/images/{{receta.imagen}}" height="150" width="150">
+        {% else %}
+            <img src="/public/images/default.jpg" height="150" width="150">
+        {% endif %}
+            <figcaption>{{receta.nombre}}</figcaption>
+        </figure>
+        <a href="/recetas/{{receta.id}}">Ver receta</a>
+    {% endfor %}
+{% endblock %}
